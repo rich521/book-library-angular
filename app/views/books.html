@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-lg-12">
+        <input type="text" class="form-control" placeholder="Search Book title or Author name..." name="search" ng-model="book.search" ng-change="book.change()">
+        <div class="input-group">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{book.selectType === ''? 'All Types': book.selectType}}
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a ng-click="book.changeType('')">All Types</a></li>
+                    <li class="dropdown-header">Category</li>
+                    <li ng-repeat="item in book.categories"><a ng-click="book.changeType(item)">{{item}}</a></li>
+                    <li class="dropdown-header">Genre</li>
+                    <li ng-repeat="item in book.genres"><a ng-click="book.changeType(item)">{{item}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="row">
+    <h3>Book Collection</h3>
+    <div class="items-container">
+        <div class="col-sm-6 col-md-4 col-xs-6 row-eq-height" ng-repeat="item in book.getData() | startFrom:book.currentPage*book.pageSize | limitTo:book.pageSize">
+            <h4><a ui-sref="item({id: item.id})">{{item.name}}</a></h4>
+            <img class="item-image" ng-src="{{item.cover}}" alt="{{item.name}}">
+            <p>Author: {{item.author.name}}</p>
+            <p>Likes: {{item.likes}}</p>
+            <p>Published {{book.relativeTime(item.published)}}</p>
+        </div>
+    </div>
+</div>
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li>
+            <a aria-label="Previous" ng-click="book.prev()" target="_self">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li ng-repeat="num in book.numberOfPages() track by $index" class="{{book.checkIndex($index)}}" ng-click="book.currentPage=$index">
+            <a target="_self">{{$index + 1}}</a>
+        </li>
+        <li>
+            <a aria-label="Next" ng-click="book.next()" target="_self">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
