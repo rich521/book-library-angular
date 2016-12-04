@@ -1,6 +1,6 @@
 # book-library-angular
 
-Libray book app
+A directory app for books. Able to search and filter. Built on AngularJs
 
 ## Build & development
 
@@ -17,7 +17,7 @@ Run `grunt build` for final production use.
 
 ## View the app
 
-* on the terminal, run `grunt serve`
+* On the terminal, run `grunt serve`
 
 ## Required Software
 
