@@ -1,14 +1,12 @@
 $primary-color: #6ed1b5;
-$active-color: grey;
+$active-color: #e5e5e5;
 body {
-    background-color: #F3F3F3;
-    color: $primary-color;
+    background-color: white;
+    font-size: 14px;
 }
 
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-    color: $active-color;
-    background-color: transparent;
+h4 {
+    padding-left: 15px;
 }
 
 a {
@@ -17,7 +15,31 @@ a {
 
 a:hover,
 a:focus {
+    color: black;
+}
+
+.control-label {
+    font-size: 16px;
+    color: grey;
+    .label-select {
+        color: $primary-color;
+        font-style: italic;
+    }
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
     color: $active-color;
+    background-color: transparent;
+}
+
+.blockquote {
+    border-left: 5px solid $primary-color;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+    color: $primary-color;
 }
 
 .pagination>.active>a,
@@ -25,9 +47,21 @@ a:focus {
 .pagination>.active>a:hover,
 .pagination>.active>span:hover,
 .pagination>.active>a:focus,
-.pagination>.active>span:focus {
+.pagination>.active>span:focus,
+.pagination>li>a:hover,
+.pagination>li>span:hover,
+.pagination>li>a:focus,
+.pagination>li>span:focus {
     background-color: $primary-color;
     border-color: $primary-color;
+    cursor: pointer;
+}
+
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus {
+    background-color: $primary-color;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .navbar {
@@ -38,20 +72,32 @@ a:focus {
     color: white;
 }
 
+.input-group {
+    width: 100%;
+}
+
+.input-lg {
+    height: 56px;
+}
+
 .items-container {
-    div {
-        background-color: white;
-        text-align: center;
-        padding: 15px;
-        border: 5px #F3F3F3 solid;
-        border-radius: 10px;
+    .article {
+        height: 420px;
+        border: 2px white solid;
+        h4 {
+            padding-left: 0px;
+            color: $primary-color;
+        }
+    }
+    .article:hover {
+        border: 2px $primary-color solid;
+        border-radius: 3px;
+        cursor: pointer;
     }
     p {
+        padding-left: 5px;
         font-style: italic;
         color: grey;
-    }
-    img {
-        border-radius: 3px;
     }
 }
 
@@ -67,20 +113,19 @@ a:focus {
     padding-bottom: 19px;
 }
 
-.input-group {
-    width: 100%;
-    input {
-        padding: 0;
+.dropdown-menu {
+    width: 550px;
+    padding: 10px;
+    li {
+        display: inline-block;
+        float: left;
+        overflow: auto;
+        padding: 2px;
     }
-}
-
-// .input-group-btn {
-//     width: 1px;
-// }
-.dropdown-menu li {
-    display: inline-block;
-    float: left;
-    overflow: auto;
+    li>a {
+        border-left: 1px $active-color solid;
+        padding: 7 px;
+    }
 }
 
 .form-control {
@@ -94,7 +139,7 @@ a:focus {
     padding-top: 19px;
     color: white;
     background-color: #353535;
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid $active-color;
     p {
         padding: 15px 0;
     }
@@ -111,14 +156,28 @@ a:focus {
     }
 }
 
-.row-eq-height {
-    height: 450px;
+.jumbotron {
+    p {
+        font-size: 18px;
+    }
+    span {
+        font-style: italic;
+        font-size: 16px;
+        margin-right: 5px;
+    }
+    .item-image {
+        float: left;
+        margin-right: 20px;
+        height: 275px;
+    }
 }
 
 .item-image {
     max-width: 100%;
     height: 250px;
     width: 210px;
+    border-radius: 3px;
+    margin-bottom: 5px;
 }
 
 .item-avatar {
@@ -126,4 +185,44 @@ a:focus {
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
+}
+
+.well {
+    text-align: center;
+    padding: 0 20px;
+    margin: 0;
+}
+
+@media screen and (min-width: 1000px) {
+    .dropdown-menu {
+        width: 940px;
+        li>a {
+            padding: 15px 7px;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .dropdown-menu {
+        width: 1140px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .jumbotron {
+        text-align: center;
+        .item-image {
+            float: none;
+            height: 275px;
+        }
+    }
+    .dropdown-menu {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .dropdown-menu {
+        width: 260px;
+    }
 }

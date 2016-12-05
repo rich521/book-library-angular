@@ -1,34 +1,38 @@
 <div class="row">
     <div class="col-lg-12">
-        <input type="text" class="form-control" placeholder="Search Book title or Author name..." name="search" ng-model="book.search" ng-change="book.change()">
-        <div class="input-group">
-            <div class="input-group-btn">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{book.selectType === ''? 'All Types': book.selectType}}
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a ng-click="book.changeType('')">All Types</a></li>
-                    <li class="dropdown-header">Category</li>
-                    <li ng-repeat="item in book.categories"><a ng-click="book.changeType(item)">{{item}}</a></li>
-                    <li class="dropdown-header">Genre</li>
-                    <li ng-repeat="item in book.genres"><a ng-click="book.changeType(item)">{{item}}</a></li>
-                </ul>
+        <div class="form-group">
+            <label class="control-label" for="search">Filter by '<span class="label-select">{{book.selectType === ''? 'All Books': book.selectType}}</span>'</label>
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{book.selectType === ''? 'All Books': book.selectType}}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a ng-click="book.changeType('')">All Books</a></li>
+                        <li ng-repeat="item in book.categories"><a ng-click="book.changeType(item)">{{item}}</a></li>
+                        <li ng-repeat="item in book.genres"><a ng-click="book.changeType(item)">{{item}}</a></li>
+                    </ul>
+                </div>
+                <input type="text" class="form-control input-lg" id="search" ng-model="book.search" ng-change="book.change()" placeholder="Search Book title or Author name...">
             </div>
+            <h5><small>Search term:<br/> </small>{{(book.search) ? "'" + book.search + "'": ''}}</h5>
         </div>
     </div>
 </div>
 </div>
 <div class="row">
-    <h3>Book Collection <small> showing 9 of {{book.arrayData.length}}</small></h3>
+    <h3>Book Collection <small> showing {{(book.arrayData.length > 8 )? 9 : book.arrayData.length}} of {{book.arrayData.length}}</small></h3>
     <div class="items-container">
-        <div class="col-sm-6 col-md-4 col-xs-6 row-eq-height" ng-repeat="item in book.getData() | startFrom:book.currentPage*book.pageSize | limitTo:book.pageSize">
-            <h4><a ui-sref="item({id: item.id})">{{item.name}}</a></h4>
-            <img class="item-image" ng-src="{{item.cover}}" alt="{{item.name}}">
-            <p>by {{item.author.name}}</p>
-            <p>published {{book.relativeTime(item.published)}}</p>
-            <p><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{item.likes}}</p>
-        </div>
+        <article class="col-sm-6 col-md-4 col-xs-12 article" ng-repeat="item in book.getData() | startFrom:book.currentPage*book.pageSize | limitTo:book.pageSize" ui-sref="item({id: item.id})">
+            <h4>{{item.name}}</h4>
+            <div class="well">
+                <img class="item-image" ng-src="{{item.cover}}" alt="{{item.name}}">
+                <p>by {{item.author.name}}</p>
+                <p>published {{book.relativeTime(item.published)}}</p>
+                <p><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{item.likes}}</p>
+            </div>
+        </article>
     </div>
 </div>
 <div class="row">

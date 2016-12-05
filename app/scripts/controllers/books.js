@@ -16,11 +16,14 @@ angular.module('bookDirectoryApp')
         _this.search = '';
         _this.items = [];
         _this.arrayData = [];
+        _this.nextDisable = false;
+        _this.prevDisable = true;
 
         // Fetch books
         bookFinder.getBooks().then(
             (data) => {
                 _this.items = data;
+                console.log(data);
                 // Get all genres and categories
                 for (let i = data.length - 1; i >= 0; i--) {
                     let dig = data[i].genre;
@@ -50,7 +53,7 @@ angular.module('bookDirectoryApp')
             } else {
                 refArray = _this.items.slice();
             }
-            
+
             // Search filter
             if (word === '') {
                 _this.arrayData = refArray.slice();

@@ -3,27 +3,19 @@
     <li class="active">{{item.book.name}}</li>
 </ul>
 <div class="row">
-    <h4>{{item.book.name}}</h4>
-    <div class="col-md-3 col-sm-3">
+    <div class="jumbotron">
         <img class="item-image" src="{{item.book.cover}}" alt="{{item.book.name}}">
-    </div>
-    <div class="col-md-9 col-sm-9">
-        <dl>
-            <dt>Author</dt>
-            <dd><img class="item-avatar" src="{{item.book.author.avatar}}" alt="{{item.book.author.name}}"> {{item.book.author.name}}</dd>
-            <dt>Likes</dt>
-            <dd>{{item.book.likes}}</dd>
-            <dt>Published</dt>
-            <dd>{{item.book.published.substring(0, 10)}}</dd>
-            <dt>Genre</dt>
-            <dd>{{item.book.genre.category}}, {{item.book.genre.name}}</dd>
-        </dl>
+        <h2>{{item.book.name}}</h2>
+        <p><img class="item-avatar" src="{{item.book.author.avatar}}" alt="{{item.book.author.name}}"> {{item.book.author.name}}</p>
+        <p><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{item.book.likes}}</p>
+        <p><span>published in</span> {{item.book.published.substring(0, 10)}}</p>
+        <p><span>{{item.book.genre.category}}, {{item.book.genre.name}}</span></p>
     </div>
 </div>
 <div class="row">
-    <blockquote>
+    <blockquote class="blockquote">
         <p>{{item.book.description}}</p>
-        <small>Description from <cite title="Source Title">Reader</cite></small>
+        <small>Comment from <cite title="Source Title">Reader</cite></small>
     </blockquote>
 </div>
 <div class="row">
@@ -46,11 +38,15 @@
 </div>
 <div class="row">
     <h4>Recommended books</h4>
-    <div class="col-sm-6 col-md-4 col-xs-12" ng-repeat="rec in item.recBooks">
-        <h4><a ui-sref="item({id: rec.id})">{{rec.name}}</a></h4>
-        <img class="item-image" ng-src="{{rec.cover}}" alt="{{rec.name}}">
-        <p>Author: {{rec.author.name}}</p>
-        <p>Likes: {{rec.likes}}</p>
-        <p>Published {{rec.published.substring(0, 10)}}</p>
+    <div class="items-container">
+        <article class="col-sm-6 col-md-4 col-xs-12 article" ng-repeat="rec in item.recBooks" ui-sref="item({id: rec.id})">
+            <h4>{{rec.name}}</h4>
+            <div class="well">
+                <img class="item-image" ng-src="{{rec.cover}}" alt="{{rec.name}}">
+                <p>by {{rec.author.name}}</p>
+                <p>published in {{rec.published.substring(0, 4)}}</p>
+                <p><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{rec.likes}}</p>
+            </div>
+        </article>
     </div>
 </div>
