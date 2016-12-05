@@ -1,16 +1,63 @@
-/* Make the masthead heading the same height as the navigation */
+$primary-color: #6ed1b5;
+$active-color: grey;
+body {
+    background-color: #F3F3F3;
+    color: $primary-color;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: $active-color;
+    background-color: transparent;
+}
+
+a {
+    color: $primary-color;
+}
+
+a:hover,
+a:focus {
+    color: $active-color;
+}
+
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
 
 .navbar {
-    background-color: #2196f3;
+    background-color: $primary-color;
 }
 
 .navbar-default .navbar-brand {
     color: white;
 }
 
+.items-container {
+    div {
+        background-color: white;
+        text-align: center;
+        padding: 15px;
+        border: 5px #F3F3F3 solid;
+        border-radius: 10px;
+    }
+    p {
+        font-style: italic;
+        color: grey;
+    }
+    img {
+        border-radius: 3px;
+    }
+}
+
 .btn-default {
     color: white;
-    background-color: #2196f3;
+    background-color: $primary-color;
 }
 
 .header h3 {
@@ -23,14 +70,13 @@
 .input-group {
     width: 100%;
     input {
-        padding: 0px;
+        padding: 0;
     }
 }
 
-.input-group-btn {
-    width: 1px;
-}
-
+// .input-group-btn {
+//     width: 1px;
+// }
 .dropdown-menu li {
     display: inline-block;
     float: left;
@@ -46,16 +92,23 @@
 
 .footer {
     padding-top: 19px;
-    color: #777;
+    color: white;
+    background-color: #353535;
     border-top: 1px solid #e5e5e5;
+    p {
+        padding: 15px 0;
+    }
 }
 
 
 /* Menu item grid */
 
 .row {
-    padding: 25px 0px;
+    padding: 15px 0px;
     border-top: 1px solid #e5e5e5;
+    h3 {
+        padding-left: 15px;
+    }
 }
 
 .row-eq-height {
