@@ -20,31 +20,33 @@
 </div>
 </div>
 <div class="row">
-    <h3>Book Collection</h3>
+    <h3>Book Collection <small> showing 9 of {{book.arrayData.length}}</small></h3>
     <div class="items-container">
         <div class="col-sm-6 col-md-4 col-xs-6 row-eq-height" ng-repeat="item in book.getData() | startFrom:book.currentPage*book.pageSize | limitTo:book.pageSize">
             <h4><a ui-sref="item({id: item.id})">{{item.name}}</a></h4>
             <img class="item-image" ng-src="{{item.cover}}" alt="{{item.name}}">
-            <p>Author: {{item.author.name}}</p>
-            <p>Likes: {{item.likes}}</p>
-            <p>Published {{book.relativeTime(item.published)}}</p>
+            <p>by {{item.author.name}}</p>
+            <p>published {{book.relativeTime(item.published)}}</p>
+            <p><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{item.likes}}</p>
         </div>
     </div>
 </div>
-<nav aria-label="Page navigation">
-    <ul class="pagination">
-        <li>
-            <a aria-label="Previous" ng-click="book.prev()" target="_self">
-                <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        <li ng-repeat="num in book.numberOfPages() track by $index" class="{{book.checkIndex($index)}}" ng-click="book.currentPage=$index">
-            <a target="_self">{{$index + 1}}</a>
-        </li>
-        <li>
-            <a aria-label="Next" ng-click="book.next()" target="_self">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-    </ul>
-</nav>
+<div class="row">
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li>
+                <a aria-label="Previous" ng-click="book.prev()" target="_self">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li ng-repeat="num in book.numberOfPages() track by $index" class="{{book.checkIndex($index)}}" ng-click="book.currentPage=$index">
+                <a target="_self">{{$index + 1}}</a>
+            </li>
+            <li>
+                <a aria-label="Next" ng-click="book.next()" target="_self">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

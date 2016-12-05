@@ -39,6 +39,7 @@ angular.module('bookDirectoryApp')
                 word = _this.search.toLowerCase(),
                 select = _this.selectType;
 
+            // Select filter
             if (select !== '') {
                 for (let i = 0; i < _this.items.length; i++) {
                     let dig = _this.items[i].genre;
@@ -49,7 +50,8 @@ angular.module('bookDirectoryApp')
             } else {
                 refArray = _this.items.slice();
             }
-
+            
+            // Search filter
             if (word === '') {
                 _this.arrayData = refArray.slice();
             } else {

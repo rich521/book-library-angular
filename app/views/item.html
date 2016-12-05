@@ -1,10 +1,10 @@
 <div class="row">
+    <h4>{{item.book.name}}</h4>
     <div class="col-md-3 col-sm-3">
         <img class="item-image" src="{{item.book.cover}}" alt="{{item.book.name}}">
     </div>
     <div class="col-md-9 col-sm-9">
         <dl>
-            <h4>{{item.book.name}}</h4>
             <dt>Author</dt>
             <dd><img class="item-avatar" src="{{item.book.author.avatar}}" alt="{{item.book.author.name}}"> {{item.book.author.name}}</dd>
             <dt>Likes</dt>
@@ -13,7 +13,7 @@
             <dd>{{item.book.published.substring(0, 10)}}</dd>
             <dt>Rating</dt>
             <dd>{{item.book.likes}}</dd>
-            <dt>Description</dt>
+            <dt>Comments</dt>
             <dd>{{item.book.description}}</dd>
             <dt>Genre</dt>
             <dd>{{item.book.genre.category}}, {{item.book.genre.name}}</dd>
@@ -21,8 +21,8 @@
     </div>
 </div>
 <div class="row">
+    <h4>Introduction Preview</h4>
     <div class="col-md-12">
-        <h4>Introduction Preview</h4>
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#menu1" target="_self">Chapter 1</a></li>
             <li><a data-toggle="tab" href="#menu2" target="_self">Chapter 2</a></li>
@@ -41,10 +41,10 @@
 <div class="row">
     <h4>Recommended books</h4>
     <div class="col-sm-6 col-md-4 col-xs-12" ng-repeat="rec in item.recBooks">
-         <h4><a ui-sref="item({id: rec.id})">{{rec.name}}</a></h4>
-            <img class="item-image" ng-src="{{rec.cover}}" alt="{{rec.name}}">
-            <p>Author: {{rec.author.name}}</p>
-            <p>Likes: {{rec.likes}}</p>
-            <p>Published {{rec.published.substring(0, 10)}}</p>
+        <h4><a ui-sref="item({id: rec.id})">{{rec.name}}</a></h4>
+        <img class="item-image" ng-src="{{rec.cover}}" alt="{{rec.name}}">
+        <p>Author: {{rec.author.name}}</p>
+        <p>Likes: {{rec.likes}}</p>
+        <p>Published {{rec.published.substring(0, 10)}}</p>
     </div>
 </div>
