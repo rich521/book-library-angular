@@ -1,3 +1,7 @@
+<ul class="breadcrumb">
+    <li><a href="#/">Library</a></li>
+    <li class="active">{{item.book.name}}</li>
+</ul>
 <div class="row">
     <h4>{{item.book.name}}</h4>
     <div class="col-md-3 col-sm-3">
@@ -11,14 +15,16 @@
             <dd>{{item.book.likes}}</dd>
             <dt>Published</dt>
             <dd>{{item.book.published.substring(0, 10)}}</dd>
-            <dt>Rating</dt>
-            <dd>{{item.book.likes}}</dd>
-            <dt>Comments</dt>
-            <dd>{{item.book.description}}</dd>
             <dt>Genre</dt>
             <dd>{{item.book.genre.category}}, {{item.book.genre.name}}</dd>
         </dl>
     </div>
+</div>
+<div class="row">
+    <blockquote>
+        <p>{{item.book.description}}</p>
+        <small>Description from <cite title="Source Title">Reader</cite></small>
+    </blockquote>
 </div>
 <div class="row">
     <h4>Introduction Preview</h4>
