@@ -70,6 +70,9 @@ a:focus {
 
 .navbar-default .navbar-brand {
     color: white;
+    span {
+        padding-left: 5px;
+    }
 }
 
 .input-group {
@@ -187,11 +190,16 @@ a:focus {
     margin-right: 10px;
 }
 
+.pagination {
+    margin-left: 15px;
+}
+
 .well {
     text-align: center;
     padding: 0 20px;
     margin: 0;
 }
+
 
 @media screen and (min-width: 1000px) {
     .dropdown-menu {
@@ -201,13 +209,11 @@ a:focus {
         }
     }
 }
-
 @media screen and (min-width: 1200px) {
     .dropdown-menu {
         width: 1140px;
     }
 }
-
 @media screen and (max-width: 600px) {
     .jumbotron {
         text-align: center;
@@ -216,13 +222,16 @@ a:focus {
             height: 275px;
         }
     }
-    .dropdown-menu {
-        width: 400px;
+    .input-group-btn:first-child>.btn {
+        border-radius: 5px;
     }
-}
-
-@media screen and (max-width: 450px) {
     .dropdown-menu {
-        width: 260px;
+        width: 100%;
+    }
+    .input-group {
+        display: block;
+    }
+    .btn-default {
+        width: 100%;
     }
 }
