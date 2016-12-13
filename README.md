@@ -5,8 +5,8 @@ A directory app for books. Able to search and filter. Built on AngularJs
 ## Build & development
 
 Run `grunt` for building
-Run `grunt serve` for preview (For Reedsy developers)
-Run `grunt build` for final production use.
+<br/>Run `grunt serve` for preview
+<br/>Run `grunt build` for final production use.
 
 ## Getting Set Up
 
